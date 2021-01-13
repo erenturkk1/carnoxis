@@ -1,5 +1,6 @@
 const ms = require('ms');
 const Discord = require("discord.js")
+const giveaways = require('discord-giveaways')
 exports.run = async (client, message, args) => {
 
     // If the member doesn't have enough permissions
