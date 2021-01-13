@@ -20,9 +20,7 @@ exports.run = (client, message, args, member) => {
   .setColor(0x36393F)
  .setAuthor(`${client.user.username} | Çekiliş Sistemi Yardım Menüsü`)
  .setDescription(`
-:tada: **${WestraPrefix}çekiliş** \n-> Çekiliş başlatır.
-:tada: **${WestraPrefix}reroll** \n-> Çekilişi yeniden çeker.
-:tada: **${WestraPrefix}çekilişbitir** \n-> Çekilişi bitirir.
+**BAKIM** Moduna Aldık Çünkü Hata Veriyordu Çözene Kadar Kullanılamayacak.
 `)
  .setFooter(`Carnoxis`)
  .setTimestamp()
