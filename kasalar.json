@@ -1,0 +1,26 @@
+[
+	{
+		"isim": "Minimum Kasa",
+    "açıklama": "Başlangıç olarak ideal olan bir kasa.",
+		"fiyat": "100",
+    "kasaid": "1"
+	},
+	{
+		"isim": "Orta Kasa",
+    "açıklama": "Orta düzeyde olan bir kasa.",
+		"fiyat": "500",
+    "kasaid": "2"
+	},
+  	{
+		"isim": "Yüksek Kasa",
+    "açıklama": "Orta düzeyde olan bir kasa.",
+		"fiyat": "1000",
+    "kasaid": "3"
+	},
+  {
+    "isim": "Büyülü Kasa",
+    "açıklama": "Yüksek Düzeyde Olan Bir Kasa",
+    "fiyat": "2000",
+    "kasaid": "4"
+  }
+]
