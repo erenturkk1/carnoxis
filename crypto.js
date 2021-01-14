@@ -212,29 +212,6 @@ client.on("guildDelete", guild => {
  kanal.send(çıkış).catch(console.error);
 });
 //
-// sa-as
-
-
-client.on("message", async msg => {
-
-
-  const i = await db.fetch(`saas_${msg.guild.id}`);
-    if (i == 'acik') {
-      if (msg.content.toLowerCase() == 'sa' || msg.content.toLowerCase() == 's.a' || msg.content.toLowerCase() == 'selamun aleyküm' || msg.content.toLowerCase() == 'es selamun aleyküm' || msg.content.toLowerCase() == 'selamun aleyküm') {
-          try {
-
-                  return msg.reply('Ve Aleyküm Selam, Hoşgeldin')
-          } catch(err) {
-            console.log(err);
-          }
-      }
-    }
-    else if (i == 'kapali') {
-    
-    }
-    if (!i) return;
-
-    });
 // ban rol kanal koruma 
 
 client.on("roleCreate", async role => {
@@ -1433,11 +1410,30 @@ client.on("guildMemberAdd", async member => {
 
 //--------------------- Etiket Prefix -------------------\\  
 
-//--------------------- Mesaj Tag -------------------\\  
+//--------------------- Sa As -------------------\\  
+
+client.on("message", async msg => {
 
 
+  const i = await db.fetch(`saas_${msg.guild.id}`);
+    if (i == 'acik') {
+      if (msg.content.toLowerCase() == 'sa' || msg.content.toLowerCase() == 's.a' || msg.content.toLowerCase() == 'selamun aleyküm') {
+          try {
 
-//--------------------- Mesaj Tag -------------------\\ 
+                  return msg.reply('Ve Aleyküm Selam, Hoşgeldin')
+          } catch(err) {
+            console.log(err);
+          }
+      }
+    }
+    else if (i == 'kapali') {
+    
+    }
+    if (!i) return;
+
+    });
+
+//--------------------- Sa As -------------------\\ 
 
 
 
