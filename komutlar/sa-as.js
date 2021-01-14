@@ -1,32 +1,37 @@
-const Discord = require('discord.js')
 const db = require('quick.db')
+const Discord = require('discord.js')
 
-exports.run = async (client ,message, args) =>{
-  if (!message.member.hasPermission("MANAGE_MESSAGES"))
-    return message.channel.send(`<a:twitchbit:793899916614828062> Bu komutu kullanabilmek için \`MANAGE_MESSAGES\` yetkisine sahip olmalısın!`);
-if(args[0] === 'aç') {
-    db.set(`saas_${message.guild.id}`, true)
-    message.channel.send('<a:twitchbit:793899916614828062> Başarılı bir şekilde SA-AS sistemi `açıldı!`')
-      db.set(`saas_${message.guild.id}`, "acik")
-  return
+exports.run = async (bot, message, args) => {
+
+if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("Bu Komutu Kullanmak İçin **Yönetici** Yetkisine Sahip Olmalısın!");
+
+if (!args[0]) return message.channel.send('Sa-as yazısını açmak için; v!`sa-as aç veya kapat`')
+
+if (args[0] == 'aç') {
+  
+db.set(`saas_${message.guild.id}`, 'acik')
+  
+message.channel.send(`**<a:twitchbit:793899916614828062> Sa-As Sistemi Açıldı** `)
 }
-if (args[0] === 'kapat') {
-  db.delete(`saas_${message.guild.id}`)
-message.channel.send('<a:twitchbit:793899916614828062> Başarılı bir şekilde SA-AS sistemi `kapatıldı!`')
-      db.set(`saas_${message.guild.id}}`, "kapali")
-return
+  
+if (args[0] == 'kapat') {
+  
+db.set(`saas_${message.guild.id}`, 'kapali')
+  
+message.channel.send(`**<a:twitchbit:793899916614828062> Sa-As Sistemi Kapandı** `)
 }
-  message.channel.send('<a:twitchbit:793899916614828062> Lüten `aç` ya da `kapat` yazın!')
-};
+
+}
+
 exports.conf = {
- enabled: true,
- guildOnly: false,
- aliases: [],
- permLevel: 0
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
 };
 
 exports.help = {
- name: 'sa-as', 
- description: 'reklam-engel',
- usage: 'reklam-engel' 
+  name: 'sa-as',
+  description: 'Selamün aleyküm, Aleyküm selam',
+  usage: 'sa-as'
 };
