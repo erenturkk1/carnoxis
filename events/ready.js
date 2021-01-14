@@ -9,7 +9,7 @@ module.exports = client => {
 }, 8000);
   var msgArray = [
 "Yeni Sistemler",
-"Çekiliş Sistemi Bakımda",
+"#EvdeKal",
 "a?yardım",
  ];
 
