@@ -1412,21 +1412,26 @@ client.on("guildMemberAdd", async member => {
 
 //--------------------- Sa As -------------------\\  
 
-const saasembed = new Discord.MessageEmbed()
-.setDescription('<a:twitchbit:793899916614828062> Aleyküm Selam. Hoş Geldin! <a:hosgeldin:799322406077988894>')
-.setTimestamp()
-.setFooter('Carnoxis')
-.setColor(0x36393E)
-   
- client.on("message", async msg => {
-  let saas = await db.fetch(`saas_${msg.guild.id}`);
-  if (saas == 'kapali') return;
-  if (saas == 'acik') {
-  if (msg.content.toLowerCase() === 'sa' || msg.content.toLowerCase() == 'selam' || msg.content.toLowerCase() == 'selamun aleyküm' || msg.content.toLowerCase() == 'sea' || msg.content.toLowerCase() == 'sae' || msg.content.toLowerCase() == 'selamün aleyküm' || msg.content.toLowerCase() == 'saa' || msg.content.toLowerCase() == 'seaa') {
-    msg.channel.send(saasembed).then(msg => msg.delete({ timeout: 8000, reason: '.' }));
-  }
-  }
-});
+client.on("message", async msg => {
+
+
+  const i = await db.fetch(`saas_${msg.guild.id}`);
+    if (i == 'acik') {
+      if (msg.content.toLowerCase() == 'sa' || msg.content.toLowerCase() == 's.a' || msg.content.toLowerCase() == 'selamun aleyküm') {
+          try {
+
+                  return msg.reply('Ve Aleyküm Selam, Hoşgeldin')
+          } catch(err) {
+            console.log(err);
+          }
+      }
+    }
+    else if (i == 'kapali') {
+    
+    }
+    if (!i) return;
+
+    });
 
 //--------------------- Sa As -------------------\\ 
 
