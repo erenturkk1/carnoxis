@@ -32,7 +32,7 @@ setInterval(() => {
 client.ayarlar = {
 "prefix":"a?",
 "sahip":"477050335685509124",
-"token":"NzkzODgzNTQyNzgyMjE0MTc0.X-yvqg.awnNEn54RbP-DGiyqn7dHsgJXGk"
+"token":"NzkzODgzNTQyNzgyMjE0MTc0.X-yvqg.IpR6YQ82D9p9sKShAbv-PDODv14"
 }
 client.ekoayarlar = {
   parabirimi: "TL", //Para Birimi TL İsterseniz Dolar Euro Vb. Para Birimleri Girebilirsiniz.
