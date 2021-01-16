@@ -139,7 +139,7 @@ client.unload = command => {
 client.elevation = message => {
   if(!message.guild) {
 	return; }
-  let permlvl = -ayarlar.varsayilanperm  ;
+  let permlvl = -cryptoconfig.varsayilanperm  ;
   if(message.member.hasPermission("MANAGE_MESSAGES")) permlvl = 1;
   if(message.member.hasPermission("KICK_MEMBERS")) permlvl = 2;
   if(message.member.hasPermission("BAN_MEMBERS")) permlvl = 3;
