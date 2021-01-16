@@ -1149,29 +1149,23 @@ client.giveawaysManager = new GiveawaysManager(client, {
 
 //// otorol sistemi
 
-client.on('guildMemberAdd', async member => {
-  
-let kanal1 = await db.fetch(`otorolkanal_${member.guild.id}`);
-let kanal2 = member.guild.channels.cache.get(kanal1)
-
-let rol1 = await db.fetch(`otorolrol_${member.guild.id}`);
-let rol2 = member.guild.roles.cache.get(rol1)
-
-if (!kanal2) return;
-if (!rol2) return;
-  
-const embed = new Discord.MessageEmbed()
-
-.setTitle('Carnoxis - Otorol')
-
-.setColor("GREEN")
-
-.setDescription(`<a:twitchbit:793899916614828062> Sunucuya Katılan **${member}** Adlı Kullanıcıya Başarıyla \`${rol2.name}\` Rolü Verildi.`)
-
-kanal2.send(embed)
-  
-member.roles.add(rol2)
-});
+client.on('guildMemberAdd', async (member) => {
+  if(db.has(`${member.guild.id}_otorol`)) {
+    var rolID = db.fetch(`${member.guild.id}_otorol`)
+    member.roles.add(rolID)
+  } else {
+    return;
+  }
+  if(db.has(`${member.guild.id}_otokanal`)) {
+    var kanal = client.channels.cache.get(db.fetch(`${member.guild.id}_otokanal`))
+    const embed = new Discord.MessageEmbed()
+    .setDescription(`Yeni katılan ${member} kullanıcısına <@&${rolID}> rolü verildi`)
+    .setTimestamp()
+    kanal.send(embed)
+  } else {
+    return;
+  }
+})
 
 //--------------------- SAYAÇ SİSTEMİ -------------------\\
 
