@@ -137,13 +137,16 @@ client.unload = command => {
 };
 
 client.elevation = message => {
-  if (!message.guild) {
-    return;
-  }
-  let permlvl = 0;
-  if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
-  if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === cryptoconfig.sahip) permlvl = 4;
+  if(!message.guild) {
+	return; }
+  let permlvl = -ayarlar.varsayilanperm  ;
+  if(message.member.hasPermission("MANAGE_MESSAGES")) permlvl = 1;
+  if(message.member.hasPermission("KICK_MEMBERS")) permlvl = 2;
+  if(message.member.hasPermission("BAN_MEMBERS")) permlvl = 3;
+  if(message.member.hasPermission("MANAGE_GUILD")) permlvl = 4;
+  if(message.member.hasPermission("ADMINISTRATOR")) permlvl = 5;
+  if(message.author.id === message.guild.ownerID) permlvl = 6;
+  if(message.author.id === cryptoconfig.sahip) permlvl = 7;
   return permlvl;
 };
 
